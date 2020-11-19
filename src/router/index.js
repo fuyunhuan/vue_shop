@@ -1,9 +1,12 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import RoVueRouter from 'vue-router'
 import Login from '../components/login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/user/Users.vue'
 
-Vue.use(VueRouter)
+Vue.use(RoVueRouter)
+
 const routes = [
   // 自动重定向
   {
@@ -11,22 +14,27 @@ const routes = [
     redirect: '/login'
   },
   {
-    path: '/Login',
+    path: '/login',
     component: Login
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    redirect: '/Welcome',
+    children: [{ path: '/welcome', component: Welcome },
+    { path: '/users', component: Users }]
   }
 ]
-const router = new VueRouter({
+const router = new RoVueRouter({
   routes
 })
-// 挂载路由导航守卫
+
+// 挂载路由导航守卫,to表示将要访问的路径，from表示从哪里来，next是下一个要做的操作 next('/login')强制跳转login
 router.beforeEach((to, from, next) => {
  if (to.path === '/login') return next()
  const tokenStr = window.sessionStorage.getItem('token')
  if (!tokenStr) return next('/login')
  next()
 })
+
 export default router
