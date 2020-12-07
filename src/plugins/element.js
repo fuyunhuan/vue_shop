@@ -1,31 +1,35 @@
 import Vue from 'vue'
 // eslint-disable-next-line import/no-duplicates
 import {
-         Button,
-         Message,
-         Form,
-         FormItem,
-         Input,
-         Container,
-         Header,
-         Aside,
-         Main,
-         Menu,
-         Submenu,
-         MenuItemGroup,
-         MenuItem,
-         Breadcrumb,
-         BreadcrumbItem,
-         Card,
-         Row,
-         Col,
-         Table,
-         TableColumn,
-         Switch,
-         Tooltip,
-         Pagination,
-         Dialog,
-         MessageBox
+  Button,
+  Message,
+  Form,
+  FormItem,
+  Input,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Menu,
+  Submenu,
+  MenuItemGroup,
+  MenuItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
+  Row,
+  Col,
+  Table,
+  TableColumn,
+  Switch,
+  Tooltip,
+  Pagination,
+  Dialog,
+  MessageBox,
+  Tag,
+  Tree,
+  Option,
+  Select
 } from 'element-ui'
 
 Vue.use(Button)
@@ -51,5 +55,9 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Option)
+Vue.use(Select)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
